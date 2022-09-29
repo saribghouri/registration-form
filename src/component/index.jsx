@@ -43,12 +43,19 @@ const Index = () => {
     if (value.firstName && value.lastName && value.email && value.password) {
       setValid(true);
     }
-    setSubmitted(true);
+
+    setValues({
+      firstName: "",
+      lastName: "",
+      email: "",
+      password: "",
+    });
+    setSubmitted(false);
   };
   return (
     <div class="form-container">
       <form class="register-form" onSubmit={handleSubmit}>
-        {submitted && valid ? (
+        {setValid && valid ? (
           <div class="success-message">Successfull Thank you!</div>
         ) : null}
         <input
